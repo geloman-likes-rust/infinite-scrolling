@@ -1,6 +1,8 @@
 # infinite-scrolling
 Toy project for testing IntersectionObserver API.
 
+![SCREENSHOT](https://raw.githubusercontent.com/geloman-likes-rust/infinite-scrolling/f9797157eb42a1e9ae853a74403d1967b65a79ee/rickmorty.png)
+
 ### Prerequisites
 
 Please install or have installed the following:
