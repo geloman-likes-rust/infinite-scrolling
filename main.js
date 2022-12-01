@@ -8,7 +8,7 @@ const getRickAndMortyCharacters = async () => {
   return data.results;
 };
 const gridContainer = document.getElementById("grid-container");
-const main = async () => {
+const addItemsToGridContainer = async () => {
   const rickAndMortyCharacters = await getRickAndMortyCharacters();
   rickAndMortyCharacters.forEach((character) => {
     const sprite = document.createElement("img");
@@ -17,7 +17,27 @@ const main = async () => {
     sprite.draggable = false;
     sprite.onload = () => (sprite.style.visibility = "visible");
     gridContainer.appendChild(sprite);
-    console.log(character.name);
   });
+};
+
+let options = {
+  root: null,
+  rootMargins: "0px",
+  treshhold: 0.5,
+};
+const handleIntersection = (entries) => {
+  if (entries[0].isIntersecting) {
+    addItemsToGridContainer();
+  }
+};
+const observer = new IntersectionObserver(handleIntersection, options);
+observer.observe(document.getElementById("footer"));
+
+const main = async () => {
+  await addItemsToGridContainer();
+  const footer = document.createElement("div");
+  footer.id = "footer";
+  document.body.append(footer);
+  console.log(page_count);
 };
 main();
